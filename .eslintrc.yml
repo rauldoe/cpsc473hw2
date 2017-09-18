@@ -1,15 +1,16 @@
 env:
       browser:   true
-extends:   'eslint:recommended' rules:
-
+extends:   'eslint:recommended'
+rules:
     indent:
           -   error
           -   2
     linebreak-style:
           -   error
           -    unix
-          #   change   the   line   above   to    unix    if   you   are   on   macOS   or   Linux     quotes:
+          #   change   the   line   above   to    unix    if   you   are   on   macOS   or   Linux
           #   change to windows if it is windows
+    quotes:
           -   error
           -   single
     semi:

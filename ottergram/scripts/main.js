@@ -1,7 +1,6 @@
-
-var DETAIL_IMAGE_SELECTOR = '[data-image-role=\"target\"]';
-var DETAIL_TITLE_SELECTOR = '[data-image-role=\"title\"]';
-var THUMBNAIL_LINK_SELECTOR = '[data-image-role=\"trigger\"]';
+var DETAIL_IMAGE_SELECTOR = '[data-image-role="target"]';
+var DETAIL_TITLE_SELECTOR = '[data-image-role="title"]';
+var THUMBNAIL_LINK_SELECTOR = '[data-image-role="trigger"]';
 
 function setDetails(imageUrl, titleText) {
   'use strict';
@@ -12,33 +11,33 @@ function setDetails(imageUrl, titleText) {
 
   var detailTitle = document.querySelector(DETAIL_TITLE_SELECTOR);
 
-  detailTitle.textContent = titleText
+  detailTitle.textContent = titleText;
 
 }
 
 function imageFromThumb(thumbnail) {
-  'use strict'
+  'use strict';
 
   return thumbnail.getAttribute('data-image-url');
 }
 
 function titleFromThumb(thumbnail) {
-  'use strict'
+  'use strict';
 
   return thumbnail.getAttribute('data-image-title');
 }
 
 
 function setDetailsFromThumb(thumbnail) {
-  'use strict'
+  'use strict';
 
   setDetails(imageFromThumb(thumbnail), titleFromThumb(thumbnail));
 }
 
 function addThumbClickHandler(thumb) {
-  'use strict'
+  'use strict';
 
-  thumb.addEventListener('click', function(event){
+  thumb.addEventListener('click', function(event) {
     event.preventDefault();
 
     setDetailsFromThumb(thumb);
@@ -46,7 +45,7 @@ function addThumbClickHandler(thumb) {
 }
 
 function getThumbnailsArray() {
-  'use strict'
+  'use strict';
 
   var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
 
@@ -56,7 +55,7 @@ function getThumbnailsArray() {
 }
 
 function initializeEvents() {
-  'use strict'
+  'use strict';
 
   var thumbnails = getThumbnailsArray();
   thumbnails.forEach(addThumbClickHandler);
