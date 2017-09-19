@@ -46,10 +46,8 @@ function addThumbClickHandler(thumb) {
   thumb.addEventListener('click', function(event) {
     event.preventDefault();
 
-    var index = thumb.getAttribute('data-image-index');
-    thumb.setAttribute('data-image-url', NewImageList[index]);
-
     setDetailsFromThumb(thumb);
+    setRandomThumbnail();
   });
 }
 
@@ -67,11 +65,7 @@ function generateNewImageList() {
   'use strict';
 
   NewImageList = [
-    'https://f4.bcbits.com/img/a3294149458_2.jpg'
-    , 'https://f4.bcbits.com/img/a0683688743_2.jpg'
-    , 'https://f4.bcbits.com/img/a1972082113_2.jpg'
-    , 'https://f4.bcbits.com/img/a3734024958_2.jpg'
-    , 'https://f4.bcbits.com/img/a0551543270_2.jpg'
+    'https://f4.bcbits.com/img/a3294149458_2.jpg', 'https://f4.bcbits.com/img/a0683688743_2.jpg', 'https://f4.bcbits.com/img/a1972082113_2.jpg', 'https://f4.bcbits.com/img/a3734024958_2.jpg', 'https://f4.bcbits.com/img/a0551543270_2.jpg'
   ];
 
   return NewImageList;
@@ -89,6 +83,15 @@ function buildOldImageList() {
   return OldImageList;
 }
 
+function setRandomThumbnail() {
+  'use strict';
+
+  var thumbnails = getThumbnailsArray();
+  var randomIndex = Math.floor(Math.random() * (thumbnails.length-1 - 0 + 1)) + 0;
+  thumbnails[randomIndex].setAttribute('data-image-url', NewImageList[randomIndex]);
+
+}
+
 function initializeEvents() {
   'use strict';
 
@@ -97,6 +100,7 @@ function initializeEvents() {
 
   buildOldImageList();
   generateNewImageList();
+  setRandomThumbnail();
 }
 
 initializeEvents();
