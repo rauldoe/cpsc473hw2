@@ -87,7 +87,7 @@ function setRandomThumbnail() {
   'use strict';
 
   var thumbnails = getThumbnailsArray();
-  var randomIndex = Math.floor(Math.random() * (thumbnails.length-1 - 0 + 1)) + 0;
+  var randomIndex = Math.floor(Math.random() * (thumbnails.length - 1 - 0 + 1)) + 0;
   thumbnails[randomIndex].setAttribute('data-image-url', NewImageList[randomIndex]);
 
 }
